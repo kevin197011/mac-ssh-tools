@@ -35,7 +35,7 @@ class GCP
 
   def project_hosts
     # project_ids.each do |id|
-    projects = %w[zh-project-327909] # zdchatroom-356206 yc-devops-test-1 zh-project-327909]
+    projects = %w[test-project]
     projects.each do |id|
       @hosts.merge!(id => update_hosts(id))
     end
