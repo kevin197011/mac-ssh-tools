@@ -1,0 +1,10 @@
+---
+:username: kevin
+:key_name: kevin
+:hosts:
+  a-project:
+  - a-project_gitlab-01: 1.1.1.1
+  b-project:
+  - b-project_gitlab-01: 1.1.1.1
+  c-project:
+  - c-project_gitlab-01: 1.1.1.1

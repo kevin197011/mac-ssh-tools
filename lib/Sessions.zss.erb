@@ -1,0 +1,38 @@
+[global]
+version=1
+encryption=none
+
+[folder]
+uuid=root
+name=/
+desc=kevin ssh
+entries=<%= @folder_uuids_str %>
+
+<%# folder %>
+<% @folder_uuids.each do |key, val| %>
+[folder]
+uuid=<%= val %>
+name=<%= key %>
+desc=<%= key %> project
+entries=<%= @host_uuids.select { |k, v| k.to_s.match(key.to_s) }.values.join(' ') %>
+<% end %>
+
+<%# session %>
+<% @host_uuids.each do |key, val| %>
+[session]
+uuid=<%= val %>
+name=<%= key %>
+host=<%= @host_ips[key] %>
+user=<%= @username %>
+port=22
+desc=<%= key %>
+connectionTimeout=10
+tcpNodelay=0
+sshKeepAliveInterval=0
+authMethod=1
+password=
+keyName=<%= @key_name %>
+emulation=xterm
+historyLines=1000
+charset=UTF-8
+<% end %>
